@@ -1,5 +1,5 @@
 <h1>Hola</h1>
-<%= link_to("Nuevo Usuario", users_form_path) %>
+<%= link_to("Nuevo Usuario", users_new_path) %>
 <% @users.each do |user| %>
-<p><%= user.name %> | <%= user.email %></p>
+<p><%= user.name %> | <%= user.email %> | <%= link_to("Editar", users_edit_path(user)) %> | <%= link_to("Eliminar", users_destroy_path(user), method: :delete, data: {confirm: 'Estais Seguro?????'}) %></p>
 <% end %>
