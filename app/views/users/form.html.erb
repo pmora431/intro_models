@@ -1,4 +1,16 @@
 <h1>Crear Usuario</h1>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+<h2><%= pluralize(@user.errors.count, "error") %> Este usuario o email ha sido utilizado.</h2>
+<ul>
+<% @user.errors.full_messages.each do |msg| %>
+<li><%= msg %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
 <form method="post" action="/users/create">
   <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
   <label for="fname">Nombre:</label><br>
